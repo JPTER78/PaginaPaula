@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Baata 💜</title>
+    <!-- Beautiful Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Quicksand:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container glass">
+        <header>
+            <h1>Para Paula</h1>
+            <p class="subtitle">De Jonathan con mucho amor</p>
+        </header>
+
+        <div class="illustration-container">
+            <div class="image-placeholder" id="main-image">
+                <img src="monigotes.png" alt="Monigotes de Paula y Jonathan"
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%; background: white;">
+            </div>
+        </div>
+
+        <!-- 1. Desde que te conocí -->
+        <div class="timer-card glass-inner">
+            <h2>Desde que te conocí</h2>
+            <p class="date">31 de Diciembre, 2023</p>
+            <div class="counter" id="timer-met">
+                <div class="time-box"><span id="met-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="met-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="met-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="met-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="met-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="met-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 1: Test de Compatibilidad -->
+        <div class="minigame-wrapper glass-inner" id="compatibility-container">
+            <h3>Test de Compatibilidad Científico 🔬</h3>
+            <p style="margin-bottom: 20px; font-weight: 600; color: var(--text-muted);">Calculando compatibilidad entre
+                Jonathan y Paula...</p>
+            <div class="compatibility-box">
+                <button class="btn-rate btn-love" id="btn-start-compat" onclick="startCompatibilityTest()"
+                    style="margin-bottom: 15px;">🔍 Iniciar Test</button>
+                <div class="progress-container" id="progress-container" style="display: none;">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="compat-bar"></div>
+                    </div>
+                    <p class="progress-text" id="compat-text">0%</p>
+                    <p class="progress-status" id="compat-status">Analizando datos románticos...</p>
+                </div>
+                <div id="compat-result" style="display: none; margin-top: 20px;">
+                    <h4 style="font-size: 2.5rem; color: var(--color-secondary); margin-bottom: 10px;">¡1000%! 🤯</h4>
+                    <p style="font-size: 1.2rem; font-weight: bold; color: var(--color-primary);">¡Rompiendo los límites
+                        de la física! Estamos hechos el uno para el otro. 💜</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Desde que volvimos a hablar -->
+        <div class="timer-card glass-inner">
+            <h2>Desde que volvimos a hablar</h2>
+            <p class="date">25 de Julio, 2025</p>
+            <div class="counter" id="timer-talk">
+                <div class="time-box"><span id="talk-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="talk-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="talk-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="talk-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="talk-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="talk-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 2: Rasca y Gana -->
+        <div class="minigame-wrapper glass-inner" id="scratch-container">
+            <h3>🎟️ Rasca y Gana Romántico 🎟️</h3>
+            <p style="margin-bottom: 20px; font-weight: 600; color: var(--text-muted);">Descubre tu sorpresa de hoy...
+            </p>
+            <div class="scratch-card-container">
+                <div class="scratch-prize" id="scratch-prize">Cargando premio...</div>
+                <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
+            </div>
+            <button class="btn-rate btn-love" id="btn-reset-scratch" onclick="resetScratchCard()"
+                style="margin-top: 15px; display: none;">🎁 Rascar otro</button>
+        </div>
+
+        <!-- 3. Desde la primera noche hablando -->
+        <div class="timer-card glass-inner">
+            <h2>Desde la primera noche hablando</h2>
+            <p class="date">31 de Julio, 2025</p>
+            <div class="counter" id="timer-night">
+                <div class="time-box"><span id="night-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="night-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="night-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="night-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="night-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="night-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 3: Máquina de Planes -->
+        <div class="minigame-wrapper glass-inner" id="slot-container">
+            <h3>🎰 Máquina de Planes 🎰</h3>
+            <p style="margin-bottom: 20px; font-weight: 600; color: var(--text-muted);">¿Qué haremos hoy?</p>
+            <div class="slot-machine">
+                <div class="slot-reel" id="slot1">❓</div>
+                <div class="slot-reel" id="slot2">❓</div>
+                <div class="slot-reel" id="slot3">❓</div>
+            </div>
+            <button class="btn-rate btn-love" id="btn-spin" onclick="spinSlots()"
+                style="margin-top: 15px; font-size: 1.1rem;">🕹️ ¡Tirar de la palanca!</button>
+            <div id="slot-result" style="display: none; margin-top: 25px; animation: heartbeat 1.5s ease-out;">
+                <h4 style="color: var(--color-primary); margin-bottom: 15px; font-size: 1.6rem;">¡Tenemos un plan! ✨
+                </h4>
+                <p id="slot-final-text"
+                    style="font-size: 1.1rem; font-weight: bold; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1); border: 1px solid var(--color-bg-2);">
+                </p>
+            </div>
+        </div>
+
+        <!-- 4. Desde tu primer detalle -->
+        <div class="timer-card glass-inner">
+            <h2>Desde tu primer detalle (una magdalena)</h2>
+            <p class="date">28 de Agosto, 2025</p>
+            <div class="counter" id="timer-gift">
+                <div class="time-box"><span id="gift-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="gift-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="gift-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="gift-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="gift-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="gift-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 4: Imán de Corazones -->
+        <div class="minigame-wrapper glass-inner" id="magnet-container">
+            <h3>🧲 Imán de Corazones 💜</h3>
+            <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-muted);">¡Atrapa todos los corazones con
+                tu imán!</p>
+            <div class="magnet-score" id="magnet-score">💜 <span id="magnet-count">0</span> / <span
+                    id="magnet-goal">15</span></div>
+            <div class="magnet-game-area" id="magnet-game-area">
+                <div class="magnet-cursor" id="magnet-cursor">🧲</div>
+                <div class="magnet-start-overlay" id="magnet-start-overlay">
+                    <button class="btn-rate btn-love" id="btn-start-magnet" onclick="startMagnetGame()">🧲
+                        ¡Empezar!</button>
+                </div>
+            </div>
+            <div id="magnet-result" style="display: none; margin-top: 20px;">
+                <h4 style="font-size: 2rem; color: var(--color-primary); margin-bottom: 10px;">¡Has atrapado mi corazón!
+                    💜</h4>
+                <p id="magnet-secret-msg"
+                    style="font-size: 1.15rem; font-weight: bold; color: var(--color-secondary); background: white; padding: 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(156,39,176,0.15); border: 1px solid var(--color-bg-2);">
+                </p>
+                <button class="btn-rate btn-love" onclick="startMagnetGame()" style="margin-top: 15px;">🔄 ¡Jugar otra
+                    vez!</button>
+            </div>
+        </div>
+
+        <!-- 5. Desde tu primer "te aprecio" -->
+        <div class="timer-card glass-inner">
+            <h2>Desde tu primer "te aprecio"</h2>
+            <p class="date">20 de Septiembre, 2025</p>
+            <div class="counter" id="timer-comment">
+                <div class="time-box"><span id="comment-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="comment-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="comment-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="comment-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="comment-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="comment-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 5: ¿Qué tanto me gusta tu...? -->
+        <div class="minigame-wrapper glass-inner" id="minigame-container">
+            <h3>¿Qué tanto me gusta tu...?</h3>
+            <div class="game-card" id="game-card">
+                <h4 id="game-trait">Cargando...</h4>
+            </div>
+            <div class="game-controls" id="game-controls">
+                <button class="btn-rate btn-love" onclick="rateTrait('Me encanta')">💜 Me encanta</button>
+                <button class="btn-rate btn-dislike" onclick="rateTrait('No me gusta')" id="btn-dislike">💔 No me
+                    gusta</button>
+            </div>
+        </div>
+
+        <!-- 6. Desde que te di mi primera carta -->
+        <div class="timer-card glass-inner">
+            <h2>Desde que te di mi primera carta y un regalo</h2>
+            <p class="date">31 de Diciembre, 2025</p>
+            <div class="counter" id="timer-letter">
+                <div class="time-box"><span id="letter-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="letter-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="letter-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="letter-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="letter-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="letter-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 6: Nuestra Canción -->
+        <div class="minigame-wrapper glass-inner" id="turntable-container">
+            <h3>🎵 Nuestra Canción 🎵</h3>
+            <p style="margin-bottom: 15px; font-weight: 600; color: var(--text-muted);">Arrastra el disco al
+                tocadiscos...</p>
+            <div class="turntable-layout">
+                <div class="vinyl-shelf">
+                    <div class="vinyl-disc" id="vinyl-disc" draggable="true">
+                        <div class="vinyl-grooves"></div>
+                        <div class="vinyl-label">
+                            <span class="vinyl-song">Just The Way<br>You Are</span>
+                            <span class="vinyl-artist">Pierce The Veil</span>
+                        </div>
+                    </div>
+                    <p class="vinyl-hint" id="vinyl-hint">☝️ Arrástrame</p>
+                </div>
+                <div class="turntable-player" id="turntable-drop">
+                    <div class="turntable-base">
+                        <div class="turntable-platter" id="turntable-platter">
+                            <div class="platter-dot"></div>
+                        </div>
+                        <div class="turntable-tonearm" id="turntable-tonearm">
+                            <div class="tonearm-head"></div>
+                        </div>
+                    </div>
+                    <div class="turntable-drop-hint" id="turntable-drop-hint">Suelta aquí 💜</div>
+                </div>
+            </div>
+            <div id="turntable-message" style="display: none; margin-top: 20px;">
+                <p
+                    style="font-size: 1.15rem; font-weight: bold; color: var(--color-secondary); background: white; padding: 18px; border-radius: 15px; box-shadow: 0 5px 15px rgba(156,39,176,0.15); border: 1px solid var(--color-bg-2); line-height: 1.6;">
+                    🎶 <em>"Just The Way You Are"</em> — Pierce The Veil<br><br>
+                    Esta canción me recuerda a ti porque eres perfecta tal y como eres. No cambiaría nada de ti. 💜
+                </p>
+            </div>
+            <div class="turntable-controls" id="turntable-controls" style="display: none;">
+                <button class="btn-rate btn-love" id="btn-turntable-toggle" onclick="toggleTurntable()">⏸️
+                    Pausar</button>
+                <button class="btn-rate btn-love" id="btn-turntable-reset" onclick="resetTurntable()"
+                    style="background: linear-gradient(45deg, #7c4dff, #b388ff);">🔄 Quitar disco</button>
+                <div class="volume-bar-wrapper">
+                    <span class="volume-icon" id="volume-icon">🔉</span>
+                    <input type="range" min="0" max="100" value="30" class="volume-slider" id="volume-slider"
+                        oninput="changeVolume(this.value)">
+                    <span class="volume-label" id="volume-label">30%</span>
+                </div>
+            </div>
+            <audio id="turntable-audio" src="just_the_way_you_are.mp3" loop></audio>
+        </div>
+
+        <!-- 7. Desde que juntamos las caritas -->
+        <div class="timer-card glass-inner">
+            <h2>Desde que juntamos las caritas por primera vez</h2>
+            <p class="date">31 de Diciembre, 2025</p>
+            <div class="counter" id="timer-faces">
+                <div class="time-box"><span id="faces-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="faces-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="faces-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="faces-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="faces-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="faces-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 7: Poción de Amor -->
+        <div class="minigame-wrapper glass-inner" id="potion-container">
+            <h3>🧪 Poción de Amor 💜</h3>
+            <p style="margin-bottom: 15px; font-weight: 600; color: var(--text-muted);">Arrastra los ingredientes al
+                caldero para crear la poción
+                perfecta...</p>
+            <div class="potion-lab">
+                <div class="potion-ingredients" id="potion-ingredients">
+                    <div class="potion-ingredient" draggable="true" data-ingredient="mimos" id="ing-mimos">
+                        <span class="ingredient-emoji">🥰</span>
+                        <span class="ingredient-name">Mimos</span>
+                    </div>
+                    <div class="potion-ingredient" draggable="true" data-ingredient="abrazos" id="ing-abrazos">
+                        <span class="ingredient-emoji">🤗</span>
+                        <span class="ingredient-name">Abrazos</span>
+                    </div>
+                    <div class="potion-ingredient" draggable="true" data-ingredient="besos" id="ing-besos">
+                        <span class="ingredient-emoji">😘</span>
+                        <span class="ingredient-name">Besos</span>
+                    </div>
+                    <div class="potion-ingredient" draggable="true" data-ingredient="amor" id="ing-amor">
+                        <span class="ingredient-emoji">💜</span>
+                        <span class="ingredient-name">Amor</span>
+                    </div>
+                </div>
+                <div class="potion-cauldron-area">
+                    <div class="cauldron-drop-hint" id="cauldron-drop-hint">⬇️ Suelta aquí</div>
+                    <div class="cauldron" id="potion-cauldron">
+                        <div class="cauldron-body">
+                            <div class="cauldron-liquid" id="cauldron-liquid">
+                                <div class="bubble b1"></div>
+                                <div class="bubble b2"></div>
+                                <div class="bubble b3"></div>
+                                <div class="bubble b4"></div>
+                                <div class="bubble b5"></div>
+                            </div>
+                            <div class="cauldron-added-list" id="cauldron-added-list"></div>
+                        </div>
+                        <div class="cauldron-handle left"></div>
+                        <div class="cauldron-handle right"></div>
+                        <div class="cauldron-base"></div>
+                    </div>
+                    <div class="cauldron-fire">
+                        <span class="fire-flame f1">🔥</span>
+                        <span class="fire-flame f2">🔥</span>
+                        <span class="fire-flame f3">🔥</span>
+                    </div>
+                    <div class="potion-progress" id="potion-progress">
+                        <span id="potion-count">0</span> / 4 ingredientes
+                    </div>
+                </div>
+            </div>
+            <div id="potion-result" style="display: none; margin-top: 20px;">
+                <div class="potion-reveal">
+                    <h4 class="potion-title">✨ ¡Poción Perfecta! ✨</h4>
+                    <p id="potion-message" class="potion-msg"></p>
+                    <button class="btn-rate btn-love" onclick="resetPotion()" style="margin-top: 15px;">🧪 ¡Preparar
+                        otra!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Desde que te dije que me gustabas -->
+        <div class="timer-card glass-inner">
+            <h2>Desde que te dije que me gustabas</h2>
+            <p class="date">30 de Enero, 2026</p>
+            <div class="counter" id="timer-confessed">
+                <div class="time-box"><span id="conf-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="conf-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="conf-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="conf-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="conf-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="conf-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- Minigame 8: Dibuja Nuestro Futuro -->
+        <div class="minigame-wrapper glass-inner" id="drawing-container">
+            <h3>🎨 Dibuja Nuestro Futuro 🎨</h3>
+            <p style="margin-bottom: 10px; font-weight: 600; color: var(--text-muted);">¡Dibuja lo que quieras!</p>
+            <div class="drawing-toolbar" id="drawing-toolbar">
+                <div class="toolbar-group">
+                    <button class="color-btn active" data-color="#9c27b0" style="background:#9c27b0;"
+                        onclick="setDrawColor(this, '#9c27b0')"></button>
+                    <button class="color-btn" data-color="#e91e63" style="background:#e91e63;"
+                        onclick="setDrawColor(this, '#e91e63')"></button>
+                    <button class="color-btn" data-color="#ff5722" style="background:#ff5722;"
+                        onclick="setDrawColor(this, '#ff5722')"></button>
+                    <button class="color-btn" data-color="#ff9800" style="background:#ff9800;"
+                        onclick="setDrawColor(this, '#ff9800')"></button>
+                    <button class="color-btn" data-color="#4caf50" style="background:#4caf50;"
+                        onclick="setDrawColor(this, '#4caf50')"></button>
+                    <button class="color-btn" data-color="#2196f3" style="background:#2196f3;"
+                        onclick="setDrawColor(this, '#2196f3')"></button>
+                    <button class="color-btn" data-color="#000000" style="background:#000000;"
+                        onclick="setDrawColor(this, '#000000')"></button>
+                    <button class="color-btn" data-color="#ffffff" style="background:#ffffff; border: 2px solid #ccc;"
+                        onclick="setDrawColor(this, '#ffffff')"></button>
+                </div>
+                <div class="toolbar-group">
+                    <button class="tool-btn active" id="brush-small" onclick="setDrawSize(3, this)"
+                        title="Fino">✏️</button>
+                    <button class="tool-btn" id="brush-med" onclick="setDrawSize(8, this)" title="Medio">🖊️</button>
+                    <button class="tool-btn" id="brush-big" onclick="setDrawSize(16, this)" title="Grueso">🖌️</button>
+                    <span class="toolbar-sep"></span>
+                    <button class="tool-btn" id="btn-eraser" onclick="toggleEraser()" title="Borrador">🧹</button>
+                    <button class="tool-btn" onclick="clearCanvas()" title="Limpiar todo">🗑️</button>
+                </div>
+                <div class="toolbar-group">
+                    <button class="tool-btn" onclick="toggleFullscreenCanvas()" title="Pantalla completa"
+                        id="btn-fullscreen-canvas">⛶</button>
+                    <button class="tool-btn save-btn" onclick="saveCanvasPNG()" title="Guardar como imagen">💾</button>
+                </div>
+            </div>
+            <div class="drawing-canvas-wrapper" id="drawing-canvas-wrapper">
+                <canvas id="drawing-canvas" class="drawing-canvas"></canvas>
+            </div>
+        </div>
+
+        <!-- 9. Desde que nos cogimos de la mano -->
+        <div class="timer-card glass-inner">
+            <h2>Desde que nos cogimos de la mano</h2>
+            <p class="date">8 de Febrero, 2026</p>
+            <div class="counter" id="timer-hand">
+                <div class="time-box"><span id="hand-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="hand-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="hand-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="hand-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="hand-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="hand-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- 10. Desde el primer mordisco -->
+        <div class="timer-card glass-inner">
+            <h2>Desde nuestro primer mordisco</h2>
+            <p class="date">25 de Febrero, 2026</p>
+            <div class="counter" id="timer-bite">
+                <div class="time-box"><span id="bite-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="bite-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="bite-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="bite-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="bite-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="bite-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- 11. Desde el primer beso en la mejilla de ambos -->
+        <div class="timer-card glass-inner">
+            <h2>Desde el primer beso en la mejilla de ambos</h2>
+            <p class="date">25 de Febrero, 2026</p>
+            <div class="counter" id="timer-cheek">
+                <div class="time-box"><span id="cheek-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="cheek-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="cheek-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="cheek-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="cheek-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="cheek-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <!-- 12. Desde la primera llamada -->
+        <div class="timer-card glass-inner">
+            <h2>Desde nuestra primera llamada</h2>
+            <p class="date">25 de Febrero, 2026</p>
+            <div class="counter" id="timer-call">
+                <div class="time-box"><span id="call-y">0</span><span class="label">Años</span></div>
+                <div class="time-box"><span id="call-m">0</span><span class="label">Meses</span></div>
+                <div class="time-box"><span id="call-d">0</span><span class="label">Días</span></div>
+                <div class="time-box"><span id="call-h">0</span><span class="label">Hrs</span></div>
+                <div class="time-box"><span id="call-min">0</span><span class="label">Min</span></div>
+                <div class="time-box"><span id="call-s">0</span><span class="label">Seg</span></div>
+            </div>
+        </div>
+
+        <div class="footer-msg">
+            <p>Eres lo más bonito que me ha pasado ✨</p>
+        </div>
+    </div>
+
+    <!-- Mini Mascota -->
+    <div class="mascot-container" id="mini-mascot">
+        <div class="speech-bubble" id="mascot-speech">¡Hola! ✨</div>
+        <img src="mini_mascot.png" alt="Mini Jonathan" class="mascot-img">
+        <audio id="mascot-audio" src="mascot-audio.mp3"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
