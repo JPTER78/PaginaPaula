@@ -747,7 +747,7 @@ function resetScratchCard() {
 const slotOptions = {
     lugar: ["🛋️<br><span style='font-size:14px;color:#757575'>Sofá</span>", "🍿<br><span style='font-size:14px;color:#757575'>Cine</span>", "🚶‍♀️<br><span style='font-size:14px;color:#757575'>Paseo</span>", "🌌<br><span style='font-size:14px;color:#757575'>Mirador</span>", "🛏️<br><span style='font-size:14px;color:#757575'>Cama</span>", "🚗<br><span style='font-size:14px;color:#757575'>Coche</span>"],
     comida: ["🍕<br><span style='font-size:14px;color:#757575'>Pizza (vegana)</span>", "🍣<br><span style='font-size:14px;color:#757575'>Sushi (vegano)</span>", "🍔<br><span style='font-size:14px;color:#757575'>Burger (vegana)</span>", "🍦<br><span style='font-size:14px;color:#757575'>Helado (vegano)</span>", "🌮<br><span style='font-size:14px;color:#757575'>Tacos (veganos)</span>", "🍿<br><span style='font-size:14px;color:#757575'>Snacks</span>"],
-    actividad: ["🎥<br><span style='font-size:14px;color:#757575'>Peli</span>", "🎲<br><span style='font-size:14px;color:#757575'>Juegos</span>", "🗣️<br><span style='font-size:14px;color:#757575'>Charlar</span>", "🫂<br><span style='font-size:14px;color:#757575'>Mimos</span>", "🎮<br><span style='font-size:14px;color:#757575'>Consola</span>", "🎵<br><span style='font-size:14px;color:#757575'>Música</span>"]
+    actividad: ["🎥<br><span style='font-size:14px;color:#757575'>Peli</span>", "🎲<br><span style='font-size:14px;color:#757575'>Juegos</span>", "🗣️<br><span style='font-size:14px;color:#757575'>Charlar</span>", "🥰<br><span style='font-size:14px;color:#757575'>Mimos</span>", "🎮<br><span style='font-size:14px;color:#757575'>Consola</span>", "🎵<br><span style='font-size:14px;color:#757575'>Música</span>"]
 };
 
 let isSpinning = false;
