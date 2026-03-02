@@ -11,6 +11,10 @@ const handDate = new Date('2026-02-08T00:00:00');
 const biteDate = new Date('2026-02-25T00:00:00');
 const cheekDate = new Date('2026-02-25T00:00:00');
 const callDate = new Date('2026-02-25T00:00:00');
+const cookingDate = new Date('2026-03-01T00:00:00');
+const napDate = new Date('2026-03-01T00:00:00');
+const cryDate = new Date('2026-03-01T00:00:00');
+const flowersDate = new Date('2026-03-01T00:00:00');
 
 function updateTimers() {
     const now = new Date();
@@ -27,6 +31,10 @@ function updateTimers() {
     const biteDiff = calculateDetailedDifference(biteDate, now);
     const cheekDiff = calculateDetailedDifference(cheekDate, now);
     const callDiff = calculateDetailedDifference(callDate, now);
+    const cookingDiff = calculateDetailedDifference(cookingDate, now);
+    const napDiff = calculateDetailedDifference(napDate, now);
+    const cryDiff = calculateDetailedDifference(cryDate, now);
+    const flowersDiff = calculateDetailedDifference(flowersDate, now);
 
     // Render elements for 'Conocí' Timer
     document.getElementById('met-y').innerText = metDiff.years;
@@ -123,6 +131,38 @@ function updateTimers() {
     document.getElementById('call-h').innerText = callDiff.hours;
     document.getElementById('call-min').innerText = callDiff.minutes;
     document.getElementById('call-s').innerText = callDiff.seconds;
+
+    // Render elements for 'Primera vez cocinando' Timer
+    document.getElementById('cooking-y').innerText = cookingDiff.years;
+    document.getElementById('cooking-m').innerText = cookingDiff.months;
+    document.getElementById('cooking-d').innerText = cookingDiff.days;
+    document.getElementById('cooking-h').innerText = cookingDiff.hours;
+    document.getElementById('cooking-min').innerText = cookingDiff.minutes;
+    document.getElementById('cooking-s').innerText = cookingDiff.seconds;
+
+    // Render elements for 'Primera siesta' Timer
+    document.getElementById('nap-y').innerText = napDiff.years;
+    document.getElementById('nap-m').innerText = napDiff.months;
+    document.getElementById('nap-d').innerText = napDiff.days;
+    document.getElementById('nap-h').innerText = napDiff.hours;
+    document.getElementById('nap-min').innerText = napDiff.minutes;
+    document.getElementById('nap-s').innerText = napDiff.seconds;
+
+    // Render elements for 'Lloramos' Timer
+    document.getElementById('cry-y').innerText = cryDiff.years;
+    document.getElementById('cry-m').innerText = cryDiff.months;
+    document.getElementById('cry-d').innerText = cryDiff.days;
+    document.getElementById('cry-h').innerText = cryDiff.hours;
+    document.getElementById('cry-min').innerText = cryDiff.minutes;
+    document.getElementById('cry-s').innerText = cryDiff.seconds;
+
+    // Render elements for 'Flores' Timer
+    document.getElementById('flowers-y').innerText = flowersDiff.years;
+    document.getElementById('flowers-m').innerText = flowersDiff.months;
+    document.getElementById('flowers-d').innerText = flowersDiff.days;
+    document.getElementById('flowers-h').innerText = flowersDiff.hours;
+    document.getElementById('flowers-min').innerText = flowersDiff.minutes;
+    document.getElementById('flowers-s').innerText = flowersDiff.seconds;
 }
 
 function calculateDetailedDifference(start, end) {
@@ -153,7 +193,14 @@ function calculateDetailedDifference(start, end) {
     if (days < 0) {
         months--;
         let prevMonth = new Date(end.getFullYear(), end.getMonth(), 0);
-        days += prevMonth.getDate();
+        let daysInPrevMonth = prevMonth.getDate();
+
+        let startDay = start.getDate();
+        if (startDay > daysInPrevMonth) {
+            days += (startDay - daysInPrevMonth);
+        }
+
+        days += daysInPrevMonth;
     }
 
     if (months < 0) {
