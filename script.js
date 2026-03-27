@@ -15,6 +15,10 @@ const cookingDate = new Date('2026-03-01T00:00:00');
 const napDate = new Date('2026-03-01T00:00:00');
 const cryDate = new Date('2026-03-01T00:00:00');
 const flowersDate = new Date('2026-03-01T00:00:00');
+const pancakesDate = new Date('2026-03-16T00:00:00');
+const sleepDate = new Date('2026-03-18T00:00:00');
+const teethDate = new Date('2026-03-18T00:00:00');
+const pajamasDate = new Date('2026-03-18T00:00:00');
 
 function updateTimers() {
     const now = new Date();
@@ -35,6 +39,10 @@ function updateTimers() {
     const napDiff = calculateDetailedDifference(napDate, now);
     const cryDiff = calculateDetailedDifference(cryDate, now);
     const flowersDiff = calculateDetailedDifference(flowersDate, now);
+    const pancakesDiff = calculateDetailedDifference(pancakesDate, now);
+    const sleepDiff = calculateDetailedDifference(sleepDate, now);
+    const teethDiff = calculateDetailedDifference(teethDate, now);
+    const pajamasDiff = calculateDetailedDifference(pajamasDate, now);
 
     // Render elements for 'Conocí' Timer
     document.getElementById('met-y').innerText = metDiff.years;
@@ -163,6 +171,38 @@ function updateTimers() {
     document.getElementById('flowers-h').innerText = flowersDiff.hours;
     document.getElementById('flowers-min').innerText = flowersDiff.minutes;
     document.getElementById('flowers-s').innerText = flowersDiff.seconds;
+
+    // Render elements for 'Tortitas' Timer
+    document.getElementById('pancakes-y').innerText = pancakesDiff.years;
+    document.getElementById('pancakes-m').innerText = pancakesDiff.months;
+    document.getElementById('pancakes-d').innerText = pancakesDiff.days;
+    document.getElementById('pancakes-h').innerText = pancakesDiff.hours;
+    document.getElementById('pancakes-min').innerText = pancakesDiff.minutes;
+    document.getElementById('pancakes-s').innerText = pancakesDiff.seconds;
+
+    // Render elements for 'Dormimos juntos en sofa' Timer
+    document.getElementById('sleep-y').innerText = sleepDiff.years;
+    document.getElementById('sleep-m').innerText = sleepDiff.months;
+    document.getElementById('sleep-d').innerText = sleepDiff.days;
+    document.getElementById('sleep-h').innerText = sleepDiff.hours;
+    document.getElementById('sleep-min').innerText = sleepDiff.minutes;
+    document.getElementById('sleep-s').innerText = sleepDiff.seconds;
+
+    // Render elements for 'Dientes' Timer
+    document.getElementById('teeth-y').innerText = teethDiff.years;
+    document.getElementById('teeth-m').innerText = teethDiff.months;
+    document.getElementById('teeth-d').innerText = teethDiff.days;
+    document.getElementById('teeth-h').innerText = teethDiff.hours;
+    document.getElementById('teeth-min').innerText = teethDiff.minutes;
+    document.getElementById('teeth-s').innerText = teethDiff.seconds;
+
+    // Render elements for 'Pijama' Timer
+    document.getElementById('pajamas-y').innerText = pajamasDiff.years;
+    document.getElementById('pajamas-m').innerText = pajamasDiff.months;
+    document.getElementById('pajamas-d').innerText = pajamasDiff.days;
+    document.getElementById('pajamas-h').innerText = pajamasDiff.hours;
+    document.getElementById('pajamas-min').innerText = pajamasDiff.minutes;
+    document.getElementById('pajamas-s').innerText = pajamasDiff.seconds;
 }
 
 function calculateDetailedDifference(start, end) {
