@@ -19,6 +19,8 @@ const pancakesDate = new Date('2026-03-16T00:00:00');
 const sleepDate = new Date('2026-03-18T00:00:00');
 const teethDate = new Date('2026-03-18T00:00:00');
 const pajamasDate = new Date('2026-03-18T00:00:00');
+const teQuieroDate = new Date('2026-05-17T00:00:00');
+const sleepAwayDate = new Date('2026-05-18T00:00:00');
 
 function updateTimers() {
     const now = new Date();
@@ -43,6 +45,8 @@ function updateTimers() {
     const sleepDiff = calculateDetailedDifference(sleepDate, now);
     const teethDiff = calculateDetailedDifference(teethDate, now);
     const pajamasDiff = calculateDetailedDifference(pajamasDate, now);
+    const teQuieroDiff = calculateDetailedDifference(teQuieroDate, now);
+    const sleepAwayDiff = calculateDetailedDifference(sleepAwayDate, now);
 
     // Render elements for 'Conocí' Timer
     document.getElementById('met-y').innerText = metDiff.years;
@@ -203,6 +207,22 @@ function updateTimers() {
     document.getElementById('pajamas-h').innerText = pajamasDiff.hours;
     document.getElementById('pajamas-min').innerText = pajamasDiff.minutes;
     document.getElementById('pajamas-s').innerText = pajamasDiff.seconds;
+
+    // Render elements for 'Primera vez que me dijo que me quería' Timer
+    document.getElementById('tequiero-y').innerText = teQuieroDiff.years;
+    document.getElementById('tequiero-m').innerText = teQuieroDiff.months;
+    document.getElementById('tequiero-d').innerText = teQuieroDiff.days;
+    document.getElementById('tequiero-h').innerText = teQuieroDiff.hours;
+    document.getElementById('tequiero-min').innerText = teQuieroDiff.minutes;
+    document.getElementById('tequiero-s').innerText = teQuieroDiff.seconds;
+
+    // Render elements for 'Primera vez que nos dormimos juntos fuera de casa' Timer
+    document.getElementById('sleepaway-y').innerText = sleepAwayDiff.years;
+    document.getElementById('sleepaway-m').innerText = sleepAwayDiff.months;
+    document.getElementById('sleepaway-d').innerText = sleepAwayDiff.days;
+    document.getElementById('sleepaway-h').innerText = sleepAwayDiff.hours;
+    document.getElementById('sleepaway-min').innerText = sleepAwayDiff.minutes;
+    document.getElementById('sleepaway-s').innerText = sleepAwayDiff.seconds;
 }
 
 function calculateDetailedDifference(start, end) {
